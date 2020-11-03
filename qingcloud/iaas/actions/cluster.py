@@ -618,3 +618,9 @@ class ClusterAction(object):
             return None
 
         return self.conn.send_request(action, body)
+
+    def describe_app_version_apis(self, version_id):
+        if not version_id:
+            return None
+        action = const.ACTION_DESCRIBE_APP_VERSION_APIS
+        return self.conn.send_request(action,  {"version_id": version_id})
